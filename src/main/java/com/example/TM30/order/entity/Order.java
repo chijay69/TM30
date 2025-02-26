@@ -19,5 +19,6 @@ public class Order {
     private Integer quantity;
 
     @ManyToOne(targetEntity = Product.class, cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
     private Long productId;
 }

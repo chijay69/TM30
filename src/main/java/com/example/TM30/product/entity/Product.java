@@ -10,7 +10,6 @@ import org.hibernate.annotations.DialectOverride;
 @Setter
 @Entity
 @Table(name = "products")
-@DialectOverride.Version(major = 0, minor = 1)
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
