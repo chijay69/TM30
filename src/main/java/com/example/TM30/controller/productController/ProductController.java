@@ -41,11 +41,16 @@ public class ProductController {
 
     @GetMapping("/{productID}")
     public ResponseEntity<ProductResponseDto> getProductWithId(@PathVariable int productID){
-        Product product = productService.findById(productID);
-        ProductResponseDto productResponseDto = new ProductResponseDto(product.getName());
-        String log_resp = "Gotten product with "+productID;
-        logger.info(log_resp);
-        return new ResponseEntity<>(productResponseDto, HttpStatus.FOUND);
+        try {
+            Product product = productService.findById(productID);
+            ProductResponseDto productResponseDto = new ProductResponseDto(product.getName());
+            String log_resp = "Gotten product with " + productID;
+            logger.info(log_resp);
+            return new ResponseEntity<>(productResponseDto, HttpStatus.FOUND);
+        } catch (RuntimeException e) {
+            logger.error(e.getLocalizedMessage());
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PostMapping("")

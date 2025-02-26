@@ -23,6 +23,7 @@ public class ProductServiceImplementation implements ProductService{
             return productRepository.findById(Long.valueOf(productId)).orElseThrow();
         } catch (Exception e) {
             log.error("An error occurred attempting to find product with id: {}, {}",productId, e.getMessage() );
+            throw new RuntimeException("Error retrieving product.");
         }
         return new Product();
     }
