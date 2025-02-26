@@ -1,0 +1,12 @@
+--CREATE TABLE IF NOT EXISTS products (
+--    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+--    name VARCHAR(150) NOT NULL
+--);
+--
+--CREATE TABLE IF NOT EXISTS stocks (
+--    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+--    quantity INTEGER NOT NULL,
+--    productId BIGINT,
+--    CONSTRAINT fk_products FOREIGN KEY (product_id) REFERENCES (product_id) ON DELETE CASCADE
+--);
+--
