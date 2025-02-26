@@ -33,8 +33,9 @@ public class OrderServiceImplementation implements OrderService{
             Order order = new Order();
             order.setId(orderRequestDto.orderId());
             order.setQuantity(orderRequestDto.quantity());
-            order.setProductId(order.getProductId());
+            order.setProductId(orderRequestDto.productId());
             Order order1 = orderRepository.save(order);
+            return order1;
         }catch (Exception e){
             log.error(" Error occurred trying to save order", e);
         }

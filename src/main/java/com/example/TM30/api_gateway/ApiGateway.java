@@ -14,12 +14,12 @@ public class ApiGateway {
         return builder.routes()
                 .route("product-service", r -> r.path("/products/**")
                         .filters(f -> f.stripPrefix(1))
-                        .uri("http://localhost:8080/products"))
+                        .uri("lb://localhost:8080/products"))
                 .route("order-service", r -> r.path("/orders/**")
                         .filters(f -> f.stripPrefix(1))
-                        .uri("http://localhost:8080/orders"))
+                        .uri("lb://localhost:8080/orders"))
                 .route("home-service", r -> r.path("/")
-                        .uri("http://localhost:8080/home"))
+                        .uri("lb://localhost:8080/home"))
                 .build();
     }
 }
